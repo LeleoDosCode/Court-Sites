@@ -1,0 +1,662 @@
+html {
+  scroll-behavior: smooth;
+}
+* {
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    135deg,
+    #0134523d 0%,
+    #4ebbfa2a 50%,
+    #0134523d 100%
+  );
+}
+
+.navbar {
+  background-color: #0047ba;
+  padding: 4px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 5px solid white;
+  height: 100px;
+}
+
+.navbar .logo {
+  display: flex;
+  justify-content: start;
+  width: 400px;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.navbar .nav-links {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  height: 100%;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00f7ff;
+  transition: 0.5s ease;
+}
+
+.navbar .contact-button {
+  width: 400px;
+  border: none;
+  border-radius: 20px;
+  padding: 1px 50px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-button button {
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 50px;
+  font-size: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.contact-button button:hover {
+  padding: 15px 60px;
+  transition: 0.2s ease;
+  display: flex;
+  font-size: 22px;
+}
+
+.banner img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-bottom: 2px solid white;
+}
+
+.ex-container {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.ex {
+  border: 2px solid rgb(255, 255, 255);
+  width: 330px;
+  height: 380px;
+  background-color: #0044bf;
+  border-top-right-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+
+  /* Começa invisível */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+.ex:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.ex:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.ex:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.ex-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.ex:hover .ex-inner {
+  transform: rotateY(180deg);
+}
+
+/* Frente (Imagem) */
+.ex-front,
+.card-hover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ex-front img {
+  width: 270px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Verso (Texto e Botão) */
+.card-hover {
+  width: 330px;
+  background: linear-gradient(135deg, #1e00ff 0%, #4929d8 50%, #1e00ff 100%);
+  border-top-right-radius: 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transform: rotateY(180deg);
+}
+
+.card-hover h2 {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.card-hover img {
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-hover button {
+  margin-top: 15px;
+  width: 80%;
+  padding: 10px;
+  background-color: #ffcc00;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  transition: transform 0.3s ease;
+}
+
+.card-hover button:hover {
+  background-color: #ffaa00;
+  transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  padding-top: 15px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #000;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px;
+  gap: 60px;
+}
+
+.card {
+  border: 1px solid #0044bf;
+  border-top-right-radius: 15px;
+  margin: 10px;
+  width: 350px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+.cards.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #0044bf;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.card-content button {
+  background-color: #0044bf;
+  color: #fff;
+  border: none;
+  width: 90%;
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+  transition: transform 0.3s ease;
+}
+
+.card-content button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+.midia-apoia {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-bottom: 1px solid #2b00632d;
+  background-color: #0044bf;
+  .icons-midia {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  h1 {
+    font-size: 30px;
+    color: white;
+  }
+
+  .cima {
+    display: flex;
+    justify-content: center;
+    gap: 55px;
+    margin-bottom: 20px;
+  }
+
+  /* Estilos padrão */
+  .midia-social-tudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: transparent;
+    border-radius: 25px;
+    border: 1px solid white;
+    box-shadow: 0 0 10px 0 white;
+    padding: 0px 40px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Estilos específicos para cada plataforma */
+
+  /* INSTAGRAM */
+  .midia-instragram:hover {
+    background: linear-gradient(45deg, #7b02a0, #cf038b, #b9a80a);
+    box-shadow: 0 0 20px rgba(212, 0, 255, 0.7);
+    transform: scale(1.05);
+  }
+
+  .midia-instragram i {
+    color: rgba(89, 0, 107, 0.7);
+  }
+  .midia-instragram i,
+  .midia-instragram p {
+    color: white;
+  }
+  .midia-instragram:hover i,
+  .midia-instragram:hover p {
+    color: white;
+  }
+
+  /* Deezer */
+  .midia-deezer:hover {
+    background: linear-gradient(45deg, #ff0000, #ff7300, #1db954);
+    box-shadow: 0 0 20px rgba(155, 0, 255, 0.7);
+    transform: scale(1.05);
+  }
+
+  .midia-deezer img {
+    width: 50px;
+    height: 25px;
+  }
+
+  .midia-deezer:hover img {
+    filter: brightness(0) invert(1);
+    /* Deixa o logo branco */
+  }
+
+  .midia-deezer i,
+  .midia-tiktok i,
+  .midia-instragram i,
+  .midia-youtube i {
+    font-size: 30px;
+    color: white;
+  }
+
+  .midia-deezer p,
+  .midia-tiktok p,
+  .midia-instragram p,
+  .midia-youtube p {
+    font-size: 30px;
+    color: white;
+  }
+
+  .midia-deezer:hover p {
+    color: white;
+  }
+
+  /* YouTube */
+  .midia-youtube:hover {
+    background: linear-gradient(45deg, #ff0000, #b80000);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    transform: scale(1.05);
+  }
+
+  .midia-youtube i {
+    color: #ffffff;
+  }
+
+  .midia-youtube:hover i,
+  .midia-youtube:hover p {
+    color: white;
+  }
+
+  /* tiktok Podcast */
+  .midia-tiktok:hover {
+    background: linear-gradient(45deg, #333, #000);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    transform: scale(1.05);
+  }
+
+  .midia-tiktok i {
+    color: rgb(255, 255, 255);
+  }
+
+  .midia-tiktok:hover i,
+  .midia-tiktok:hover p {
+    color: white;
+  }
+
+  .midia-social-tudo {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out,
+      box-shadow 1s ease-in-out;
+  }
+
+  /* Quando a classe 'visible' é adicionada */
+  .midia-social-tudo.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animação personalizada para cada plataforma */
+  .midia-instragram.visible {
+    box-shadow: 0 0 15px rgba(30, 215, 95, 0.356);
+  }
+
+  .midia-deezer.visible {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.301);
+  }
+
+  .midia-youtube.visible {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.281);
+  }
+
+  .midia-tiktok.visible {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.37);
+  }
+
+  /* Animações para cada plataforma */
+  @keyframes pulse-green {
+    0% {
+      box-shadow: 0 0 0px rgba(30, 215, 96, 0.5);
+    }
+
+    50% {
+      box-shadow: 0 0 20px rgba(30, 215, 96, 0.8);
+    }
+
+    100% {
+      box-shadow: 0 0 0px rgba(30, 215, 96, 0.5);
+    }
+  }
+
+  @keyframes pulse-blue {
+    0% {
+      box-shadow: 0 0 0px rgba(0, 122, 255, 0.5);
+    }
+
+    50% {
+      box-shadow: 0 0 20px rgba(0, 122, 255, 0.8);
+    }
+
+    100% {
+      box-shadow: 0 0 0px rgba(0, 122, 255, 0.5);
+    }
+  }
+
+  @keyframes pulse-red {
+    0% {
+      box-shadow: 0 0 0px rgba(255, 0, 0, 0.5);
+    }
+
+    50% {
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    }
+
+    100% {
+      box-shadow: 0 0 0px rgba(255, 0, 0, 0.5);
+    }
+  }
+
+  @keyframes pulse-black {
+    0% {
+      box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    }
+
+    50% {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+
+    100% {
+      box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .midia-social-tudo i,
+  .midia-social-tudo img {
+    transition: transform 0.6s ease-in-out;
+  }
+
+  /* Efeito de rotação ao passar o mouse */
+  .midia-social-tudo:hover i,
+  .midia-social-tudo:hover img {
+    transform: rotate(360deg);
+  }
+}
+.apoie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  background: linear-gradient(135deg, rgb(36, 0, 53), var(--cor-primaria));
+  color: white;
+  padding: 3rem;
+  text-align: left;
+  opacity: 0;
+  /* Começa invisível */
+  transform: translateY(50px);
+  /* Começa deslocado para baixo */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  border-bottom: 1px solid #ffffff3b;
+}
+
+.apoie.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.apoie-content {
+  max-width: 500px;
+}
+
+.apoie h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.apoie p,
+strong {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  word-spacing: 5px;
+  color: #000;
+  /* Aumenta o espaço entre palavras */
+}
+
+.apoie-btn {
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  background: #ffd700;
+  color: #5b2c6f;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.apoie-btn:hover {
+  background: #ffc107;
+  transform: scale(1.05);
+}
+
+.apoie-img a {
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.apoie-img img {
+  width: 275px;
+  height: 275px;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 5px;
+
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.089);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito hover bonito na imagem */
+.apoie-img a:hover {
+  transform: scale(1.05);
+  /* Dá um leve zoom */
+  filter: brightness(1.2);
+  /* Deixa mais vibrante */
+}
+
+.apoie-img img:hover {
+  box-shadow: 0 4px 10px #0044bf;
+  background: linear-gradient(150deg, #0044bf 10%, #00255c 90%);
+}
+
+.footer {
+  background-color: #0052cc;
+  color: white;
+  padding: 50px 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  .section {
+    flex: 1;
+    max-width: 250px;
+    margin: 10px;
+  }
+
+  .section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .section p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .section .social-media {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section .social-media a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+  }
+
+  .footer .section .social-media a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .footer .section .social-media a i {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
